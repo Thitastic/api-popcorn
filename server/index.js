@@ -31,7 +31,7 @@ App.use('/api/ep', eposide) //get eposide at path api/ep
 
 
 
-const port = process.env.WEB_PORT || 8080
+const port = process.env.WEB_PORT || 3000
 
 App.listen(port, ()=>{
     console.log('Your app is listened at localhost:' + port)
