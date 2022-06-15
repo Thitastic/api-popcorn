@@ -31,8 +31,6 @@ App.use('/api/ep', eposide) //get eposide at path api/ep
 
 
 
-const port = process.env.WEB_PORT || 3000
-
-App.listen(port, ()=>{
-    console.log('Your app is listened at localhost:' + port)
-})
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
