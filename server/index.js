@@ -28,6 +28,9 @@ App.use('/api/genre', genres) //get web element at path api/genre
 const eposide = require('./api/eposides')
 App.use('/api/ep', eposide) //get eposide at path api/ep
 
+const sms = require('./api/sms')
+App.use('/api/sms', sms) //send sms
+
 
 
 
