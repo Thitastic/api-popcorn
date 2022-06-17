@@ -5,7 +5,9 @@ const bodyParser = require('body-parser')
 
 const App = express()
 App.use(bodyParser.json())
-App.use(cors())
+App.use(cors({
+  origin: "thepopcorn.netlify.app"
+}))
 
 const path = __dirname +"./public/index.html"
 App.use(express.static(path))
@@ -30,8 +32,6 @@ App.use('/api/ep', eposide) //get eposide at path api/ep
 
 const sms = require('./api/sms')
 App.use('/api/sms', sms) //send sms
-
-
 
 
 App.listen(process.env.PORT || 3000, function(){
