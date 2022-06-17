@@ -13,10 +13,10 @@ api.get('/test', (req, res)=>{
 
 function sendSms(message){
     const vonage = new Vonage({
-        apiKey: "b65409d0",
-        apiSecret: "agK00JLrgCm2e6SN"
+        apiKey: "3a6c01e7",
+        apiSecret: "ZqqQaeFcfMis0vqC"
         })
-        const from = "Vonage APIs"
+        const from = "POPCORN"
         const to = message.number
         const text = message.text
 
