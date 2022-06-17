@@ -7,14 +7,18 @@ api.get('/', (req, res)=>{
     res.send(sendSms())
 })
 
+api.get('/test', (req, res)=>{
+    res.send("Hello")
+})
+
 function sendSms(){
     const vonage = new Vonage({
         apiKey: "b65409d0",
         apiSecret: "agK00JLrgCm2e6SN"
         })
-        const from = "Vonage APIs"
-        const to = "84837307538"
-        const text = 'A text message sent using the Vonage SMS API'
+        const from = "POPCORN"
+        const to = "+84837307538"
+        const text = 'Your OTP is: 012-355'
 
         vonage.message.sendSms(from, to, text, (err, responseData) => {
             if (err) {
@@ -22,8 +26,10 @@ function sendSms(){
             } else {
                 if(responseData.messages[0]['status'] === "0") {
                     console.log("Message sent successfully.");
+                    return 200
                 } else {
                     console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
+                    return 404
                 }
             }
         })
@@ -32,4 +38,4 @@ function sendSms(){
 
 
 
-module.export = api
+module.exports = api
