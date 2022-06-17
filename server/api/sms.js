@@ -3,22 +3,22 @@ const express = require('express')
 
 const api = express.Router()
 
-api.get('/', (req, res)=>{
-    res.send(sendSms())
+api.post('/', (req, res)=>{
+    res.send(sendSms(req.body.message))
 })
 
 api.get('/test', (req, res)=>{
     res.send("Hello")
 })
 
-function sendSms(){
+function sendSms(message){
     const vonage = new Vonage({
         apiKey: "b65409d0",
         apiSecret: "agK00JLrgCm2e6SN"
         })
         const from = "POPCORN"
-        const to = "+84837307538"
-        const text = 'Your OTP is: 012-355'
+        const to = message.number
+        const text = message.text
 
         vonage.message.sendSms(from, to, text, (err, responseData) => {
             if (err) {
