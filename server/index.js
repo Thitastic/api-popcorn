@@ -6,9 +6,7 @@ const bodyParser = require('body-parser')
 const App = express()
 App.use(bodyParser.json())
 
-App.use(cors({
-  origin: "thepopcorn.netlify.app"
-}))
+App.use(cors())
 
 const path = __dirname +"./public/index.html"
 App.use(express.static(path))

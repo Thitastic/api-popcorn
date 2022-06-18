@@ -50,10 +50,17 @@ async function addNewGallery(item){
         )
         await client.connect()
         const gallery = client.db('popcorn-collections').collection('popcorn_gallery')
-        gallery.insertOne(
+        const movies = client.db('popcorn-collections').collection('popcorn_mvies')
+        const movie = movies.find({_id: item._movie_id}).toArray()
+        gallery.replaceOne(
             {
                 _user_id: item._user_id,
-                _movie_id: item._movie_id
+            },
+            {
+                _movie: movie,
+            },
+            {
+                upset: true,
             }
         )
     } catch (error) {
