@@ -52,7 +52,7 @@ async function addNewGallery(item){
         const gallery = client.db('popcorn-collections').collection('popcorn_gallery')
         gallery.insertOne(
             {
-                _user_id: item._id,
+                _user_id:  mongodb.ObjectId(item._user_id),
                 _movie: item._movie
             }
         )
