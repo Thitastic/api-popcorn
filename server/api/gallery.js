@@ -5,16 +5,16 @@ const router = express.Router()
 
 const uri = 'mongodb+srv://thitastic:ten96nctu@popcorn-main.5rlgx.mongodb.net/?retryWrites=true&w=majority'
 
-router.get('/gallery/:user_id', async (req, res)=>{
+router.get('/:user_id', async (req, res)=>{
     res.send(await getByUser(req.params.user_id))
 } )
 
-router.post('/gallery/new', async (req, res)=>{
+router.post('/new', async (req, res)=>{
     res.send(await addNewGallery(req.body.item))
 } )
 
 
-router.delete('/gallery/destroy/:id', async (req, res)=>{
+router.delete('/destroy/:id', async (req, res)=>{
     res.send(await deleteGallery(req.params.id))
 } )
 
