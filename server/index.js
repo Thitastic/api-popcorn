@@ -34,6 +34,9 @@ App.use('/api/ep', eposide) //get eposide at path api/ep
 const sms = require('./api/sms')
 App.use('/api/sms', sms) //send sms
 
+const gallery = require('./api/gallery')
+App.use('/api/gallery', gallery) //send sms
+
 
 App.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, App.settings.env);
